@@ -1,6 +1,7 @@
-import  express, { json } from "express";
+import  express, { Router, json } from "express";
 import mongoose from "mongoose";
-import Post from "./Post.js";
+
+import router from "./router.js";
 
 const PORT = 5000
 
@@ -8,6 +9,9 @@ const DB_URL = "mongodb+srv://user:user@cluster0.k5omo2x.mongodb.net/?retryWrite
 
 const app = express()
 app.use(express.json())
+app.use('/api',router)
+
+
 
 app.post('/', async (req,res)=>{
     try{
